@@ -19,6 +19,7 @@ def local(line, cell=None):
     get_ipython().run_cell(cell if cell else line) 
 
 # %% ../nbs/00_core.ipynb 7
+#| echo: true
 def set_ssh_config(
     port:int,                           # the port on the proxy server (bore.pub)
     user:str="",                        # username on remote machine
