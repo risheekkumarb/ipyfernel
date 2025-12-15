@@ -135,9 +135,26 @@ def ipf_shutdown(verbose=True):
     _ipf_km, _ipf_kc = None, None
 
 # %% ../nbs/00_core.ipynb 18
+# def _execute_remotely(lines:list[str]):
+#     "Take commands from magics and send to ipf_exec"
+#     code = ''.join(lines)
+#     if 'get_ipython()' in code: return lines  # let solveit internals pass through
+#     # Make sure our magics execute locally
+#     if code.strip().startswith(('%local', '%%local', '%unset_remote', '%resume_remote', '%set_remote', '%set_sticky','%unset_sticky')):
+#         return lines
+#     return [f"ipf_exec({repr(code)})\n"]
+
+
+_skip_next = False 
+
 def _execute_remotely(lines:list[str]):
     "Take commands from magics and send to ipf_exec"
+    global _skip_next
     code = ''.join(lines)
+    if _skip_next:
+        _skip_next = False
+        return lines
+    print(f"DEBUG: _skip_next={_skip_next}, code starts with: {code[:50]!r}")
     if 'get_ipython()' in code: return lines  # let solveit internals pass through
     # Make sure our magics execute locally
     if code.strip().startswith(('%local', '%%local', '%unset_remote', '%resume_remote', '%set_remote', '%set_sticky','%unset_sticky')):
@@ -166,9 +183,16 @@ def remote(line, cell=None):
     ipf_exec(cell if cell else line)
 
 # %% ../nbs/00_core.ipynb 23
+# @register_line_cell_magic
+# def local(line, cell=None):
+#     "local execution: works as %local and as %%local"
+#     get_ipython().run_cell(cell if cell else line) 
+
 @register_line_cell_magic
 def local(line, cell=None):
     "local execution: works as %local and as %%local"
+    global _skip_next
+    _skip_next = True
     get_ipython().run_cell(cell if cell else line) 
 
 # %% ../nbs/00_core.ipynb 25
