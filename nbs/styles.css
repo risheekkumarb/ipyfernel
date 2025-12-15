@@ -2,26 +2,26 @@
 
 /* Dark background everywhere */
 body, .page-layout, .page-columns, .column-body, .column-page {
-  background-color: #1a1a1a !important;
+  background-color: #171717 !important;
   color: #f0f0f0;
 }
 
 /* Sidebar - match background */
 .sidebar, .sidebar-navigation, #quarto-sidebar {
-  background-color: #1a1a1a !important;
+  background-color: #171717 !important;
   border-right: none !important;
 }
 
 /* Right-hand TOC panel */
 #quarto-margin-sidebar, .toc-actions, #TOC {
-  background-color: #1a1a1a !important;
+  background-color: #171717 !important;
   border-left: none !important;
 }
 
 /* Top navbar - deep orange with white text */
 .navbar {
-  background-color: #d35400 !important;
-  border-bottom: 3px solid #e74c3c;
+  background-color: #be5006 !important;
+  border-bottom: 3px solid #a34210;
 }
 
 .navbar-brand, .navbar-nav .nav-link, .navbar-title {
