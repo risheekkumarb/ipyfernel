@@ -100,3 +100,12 @@ div.description {
 }
 
 
+/* Left sidebar links */
+.sidebar a, .sidebar-item a, .sidebar-navigation a {
+  color: #e67e22 !important;
+}
+
+/* TOC active indicator line */
+#TOC .active, #TOC .toc-active, .toc-active {
+  border-left-color: #e67e22 !important;
+}
