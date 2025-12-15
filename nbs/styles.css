@@ -1,3 +1,51 @@
+/* === INFERNAL FIRE THEME === */
+
+/* Dark background, light text */
+body {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+/* Top navbar - deep orange with white text */
+.navbar {
+  background-color: #d35400 !important;
+  border-bottom: 3px solid #e74c3c;
+}
+
+.navbar-brand, .navbar-nav .nav-link, .navbar-title {
+  color: #fff !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffcc00 !important;
+}
+
+/* Hyperlinks - warm orange, hover to yellow */
+a {
+  color: #e67e22;
+}
+
+a:hover {
+  color: #f1c40f;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #222;
+  border-right: 2px solid #d35400;
+}
+
+/* Code blocks - dark with subtle red border */
+pre, code {
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+}
+
+.cell-output > pre, .cell-output > .sourceCode > pre, .cell-output-stdout > pre {
+  border-left: 2px solid #e74c3c;
+}
+
+/* Keep the existing cell styling */
 .cell {
   margin-bottom: 1rem;
 }
@@ -14,16 +62,12 @@
   margin-left: 0.8rem;
   margin-top: 0;
   background: none;
-  border-left: 2px solid lightsalmon;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
 .cell-output > .sourceCode {
   border: none;
-}
-
-.cell-output > .sourceCode {
   background: none;
   margin-top: 0;
 }
@@ -35,3 +79,4 @@ div.description {
   font-size: 135%;
   opacity: 70%;
 }
+

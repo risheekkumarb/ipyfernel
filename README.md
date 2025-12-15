@@ -35,12 +35,6 @@ Install latest from the GitHub
 $ pip install git+https://github.com/drscotthawley/ipyfernel.git
 ```
 
-or from [conda](https://anaconda.org/drscotthawley/ipyfernel)
-
-``` sh
-$ conda install -c drscotthawley ipyfernel
-```
-
 or from [pypi](https://pypi.org/project/ipyfernel/)
 
 ``` sh
@@ -52,9 +46,8 @@ $ pip install ipyfernel
 Documentation can be found hosted on this GitHub
 [repository](https://github.com/drscotthawley/ipyfernel)’s
 [pages](https://drscotthawley.github.io/ipyfernel/). Additionally you
-can find package manager specific guidelines on
-[conda](https://anaconda.org/drscotthawley/ipyfernel) and
-[pypi](https://pypi.org/project/ipyfernel/) respectively.
+can find package manager specific guidelines
+[pypi](https://pypi.org/project/ipyfernel/).
 
 ## How to use
 
