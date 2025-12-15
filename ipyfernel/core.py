@@ -5,16 +5,14 @@
 # %% auto 0
 __all__ = ['set_ssh_config']
 
-# %% ../nbs/00_core.ipynb 3
-#| eval: false
+# %% ../nbs/00_core.ipynb 4
 from jupyter_client.manager import KernelManager
 from IPython.display import display, Image
 import base64
 from pathlib import Path
 from IPython.core.magic import register_line_magic, register_line_cell_magic
 
-# %% ../nbs/00_core.ipynb 5
-#| eval: false
+# %% ../nbs/00_core.ipynb 6
 def set_ssh_config(
     port:int,                           # the port on the proxy server (bore.pub)
     user:str="",                        # username on remote machine
