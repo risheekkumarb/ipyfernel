@@ -109,3 +109,10 @@ div.description {
 #TOC .active, #TOC .toc-active, .toc-active {
   border-left-color: #e67e22 !important;
 }
+
+.page-footer, footer {
+  background-color: #171717 !important;
+  border-top: none !important;
+}
+
+
