@@ -9,7 +9,7 @@ __all__ = ['gip', 'set_ssh_config', 'register_remote_kernel', 'ipf_startup', 'ip
 # %% ../nbs/00_core.ipynb 4
 from jupyter_client.manager import KernelManager
 from jupyter_client.kernelspec import KernelSpecManager
-import subprocess
+import subprocess 
 from IPython.display import display, Image
 import base64
 from pathlib import Path
