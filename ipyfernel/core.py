@@ -18,7 +18,7 @@ def local(line, cell=None):
     "local execution: works as %local and as %%local"
     get_ipython().run_cell(cell if cell else line) 
 
-# %% ../nbs/00_core.ipynb 8
+# %% ../nbs/00_core.ipynb 7
 #| echo: true
 def set_ssh_config(
     port:int,                           # the port on the proxy server (bore.pub)
