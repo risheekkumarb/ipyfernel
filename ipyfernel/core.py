@@ -23,7 +23,14 @@ def local(line, cell=None):
 del local
 
 # %% ../nbs/00_core.ipynb 5
-def set_ssh_config(port, user="", alias="remote_server_sshpyk", proxyname="bore.pub", config_path="~/.ssh/config"):
+def set_ssh_config(
+    port:int,                           # the port on the proxy server (bore.pub)
+    user:str="",                        # username on remote machine
+    alias:str="remote_server_sshpyk",   # ssh config alias; this default is expected
+    proxyname:str="bore.pub",           # only ever tested with bore.pub 
+    config_path:str="~/.ssh/config",    # where your ssh config file is (shouldn't be anywhere else)
+    ):
+    "setup ssh config file for use with `sshpyk`"
     config_path = Path(config_path).expanduser()
     if not config_path.exists(): config_path.touch()
     text = config_path.read_text()
