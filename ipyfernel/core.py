@@ -134,7 +134,17 @@ def ipf_shutdown(verbose=True):
     except: pass  # Don't hang on errors
     _ipf_km, _ipf_kc = None, None
 
-# %% ../nbs/00_core.ipynb 18
+# %% ../nbs/00_core.ipynb 17
+def set_remote(port, user=""):
+    """Setup connection to remote server, start remote server, and enable 'sticky' remote execution of code cells (even without magics)."""
+    set_ssh_config(port, user=user) 
+    try: 
+        ipf_startup()
+    except Exception as e: 
+        print(f"Error starting up remote kernel: {e}") 
+        return 
+
+# %% ../nbs/00_core.ipynb 20
 _skip_next = False  # This is used in conjunction with %%local, below
 
 def _execute_remotely(lines:list[str]):
@@ -149,21 +159,6 @@ def _execute_remotely(lines:list[str]):
     if code.strip().startswith(('%local', '%%local', '%unset_remote', '%resume_remote', '%set_remote', '%set_sticky','%unset_sticky')):
         return lines
     return [f"ipf_exec({repr(code)})\n"]
-
-# %% ../nbs/00_core.ipynb 19
-@register_line_magic
-def set_remote(line:str):
-    """Setup connection to remote server, start remote server, and enable 'sticky' remote execution of code cells (even without magics).
-    usage: %set_remote <port> [user]"""
-    parts = line.split()
-    port = int(parts[0]) if parts else 65445
-    user = parts[1] if len(parts) > 1 else ""
-    set_ssh_config(port, user=user) 
-    try: 
-        ipf_startup()
-    except Exception as e: 
-        print(f"Error starting up remote kernel: {e}") 
-        return 
 
 # %% ../nbs/00_core.ipynb 21
 @register_line_cell_magic
@@ -180,17 +175,15 @@ def local(line, cell=None):
     get_ipython().run_cell(cell if cell else line) 
 
 # %% ../nbs/00_core.ipynb 25
-@register_line_magic
-def unset_remote(_):
+def unset_remote():
     "shutdown remote server"
-    unset_sticky('')  # get rid of any input transformers (see below) 
+    unset_sticky()  # get rid of any input transformers (see below) 
     ipf_shutdown()
 
 # %% ../nbs/00_core.ipynb 27
 gip = get_ipython()
 
-@register_line_magic
-def set_sticky(_):
+def set_sticky():
     "Makes code cells execute remotely, via input transformer"
     assert _ipf_kc is not None, "Need an active remote kernel connection" 
     for f in gip.input_transformers_cleanup[:]:   # gaurd against appending twice
@@ -201,8 +194,7 @@ def set_sticky(_):
     print('Code cells will now execute remotely.')
 
 # %% ../nbs/00_core.ipynb 28
-@register_line_magic
-def unset_sticky(_):
+def unset_sticky():
     "Un-sticks remote execution for code cells" 
     for f in gip.input_transformers_cleanup[:]:  
         if getattr(f, '__name__', '') == '_execute_remotely':
