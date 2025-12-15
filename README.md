@@ -29,16 +29,16 @@ $ nbdev_prepare
 ### Installation
 
 Install latest from the GitHub
-[repository](https://github.com/shawley/ipyfernel):
+[repository](https://github.com/drscotthawley/ipyfernel):
 
 ``` sh
-$ pip install git+https://github.com/shawley/ipyfernel.git
+$ pip install git+https://github.com/drscotthawley/ipyfernel.git
 ```
 
-or from [conda](https://anaconda.org/shawley/ipyfernel)
+or from [conda](https://anaconda.org/drscotthawley/ipyfernel)
 
 ``` sh
-$ conda install -c shawley ipyfernel
+$ conda install -c drscotthawley ipyfernel
 ```
 
 or from [pypi](https://pypi.org/project/ipyfernel/)
@@ -50,10 +50,10 @@ $ pip install ipyfernel
 ### Documentation
 
 Documentation can be found hosted on this GitHub
-[repository](https://github.com/shawley/ipyfernel)’s
-[pages](https://shawley.github.io/ipyfernel/). Additionally you can find
-package manager specific guidelines on
-[conda](https://anaconda.org/shawley/ipyfernel) and
+[repository](https://github.com/drscotthawley/ipyfernel)’s
+[pages](https://drscotthawley.github.io/ipyfernel/). Additionally you
+can find package manager specific guidelines on
+[conda](https://anaconda.org/drscotthawley/ipyfernel) and
 [pypi](https://pypi.org/project/ipyfernel/) respectively.
 
 ## How to use
