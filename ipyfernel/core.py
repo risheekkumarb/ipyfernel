@@ -138,7 +138,7 @@ def ipf_shutdown(verbose=True):
 
 # %% ../nbs/00_core.ipynb 19
 def start_remote(port, user=""):
-    """Setup connection to remote server, start remote server, and enable 'sticky' remote execution of code cells (even without magics)."""
+    "Configure ssh connection to remote server and start remote server"
     set_ssh_config(port, user=user) 
     try: 
         ipf_startup()
